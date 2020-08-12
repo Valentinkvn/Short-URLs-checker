@@ -26,10 +26,10 @@ python3 urls.py <input_type> <file_name> <api_key>
 #### Examples
 To run the URLs checker on short_urls.txt file that contains a list of URLs.
 ```bash
-python3 urls.py 0 short_urls.txt private_api_key
+python3 urls.py 0 short_urls.txt <your_private_api_key>
 ```
 
 To run the URLs checker on mail.eml file that contains a mail.
 ```bash
-python3 urls.py 1 mail.eml private_api_key
+python3 urls.py 1 mail.eml <your_private_api_key>
 ```
