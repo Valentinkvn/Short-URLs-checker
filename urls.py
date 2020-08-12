@@ -12,7 +12,7 @@ from pydnsbl import DNSBLDomainChecker, providers
 from pydnsbl.providers import Provider
 
 
-def main(input_type, file_name):
+def main(input_type, file_name, api_key):
     start = time.perf_counter()
 
     if input_type == "0":
@@ -40,7 +40,7 @@ def main(input_type, file_name):
                 long_urls.append(result)
             print(str(i+1) + ". " + urls[i] + "\n\t -> " + result)
 
-    google_safe_browsing(long_urls)
+    google_safe_browsing(long_urls, api_key)
 
     uribl_safe_browsing(long_urls)
 
@@ -86,9 +86,8 @@ def find_expanded_url(url_to_search):
 # Function that uses the Google Safe Browsing API to find the listing info
 # about a domain. This function takes as input a list of expanded URLs and
 # prints the listing status of the domains inside the URLs.
-def google_safe_browsing(long_urls):
+def google_safe_browsing(long_urls, api_key):
     print("--------------------------------------------------------------")
-    api_key = 'xxx'
     url = ("https://safebrowsing.googleapis.com/v4/threatMatches:find?key=" +
         api_key)
     payload_json = {
@@ -202,4 +201,4 @@ def get_urls_from_mail(mail_body):
 # taken from the command line, the first one is the input data type (.txt file
 # or .eml file) and the second one the name of the file
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
