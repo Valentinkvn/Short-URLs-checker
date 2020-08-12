@@ -17,18 +17,19 @@ pip3 install pydnsbl
 ### Usage
 To run the script
 ```bash
-python3 urls.py <input_type> <file_name>
+python3 urls.py <input_type> <file_name> <api_key>
 ```
 - input_type can be 0 (to read the list of the URLs from a .txt file) or 1 (to parse a .eml file and find the list of URLs in it).
 - file_name is the actual name of the file
+- api_key is the actual api key given by Google Services
 
 #### Examples
 To run the URLs checker on short_urls.txt file that contains a list of URLs.
 ```bash
-python3 urls.py 0 short_urls.txt
+python3 urls.py 0 short_urls.txt 'private_api_key'
 ```
 
 To run the URLs checker on mail.eml file that contains a mail.
 ```bash
-python3 urls.py 1 mail.eml
+python3 urls.py 1 mail.eml 'private_api_key'
 ```
